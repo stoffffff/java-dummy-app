@@ -12,6 +12,7 @@ artifacts:
     path: 'src/main/java/hello'
     artifactId: 'java-dummy-app'
     groupId: 'com.stekdubs.dev'
+    packaging: 'jar'
     version: '1.0.0'
 options:
   default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET

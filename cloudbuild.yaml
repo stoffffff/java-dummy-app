@@ -9,7 +9,7 @@ steps:
 artifacts:
   mavenArtifacts:
   - repository: 'https://europe-west1-maven.pkg.dev/exam-prep-459213/maven-repo'
-    path: 'src/main/java/hello'
+    path: '/workspace/target/'
     artifactId: 'java-dummy-app'
     groupId: 'com.stekdubs.dev'
     version: '1.0.0'

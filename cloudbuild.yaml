@@ -1,0 +1,17 @@
+steps:
+  - name: maven:3.3-jdk-8
+    entrypoint: mvn
+    args: ['test']
+  - name: maven:3.3-jdk-8
+    entrypoint: mvn
+    args: ['package','-Dmaven.test.skip=true']
+
+artifacts:
+  mavenArtifacts:
+  - repository: 'https://europe-west1-maven.pkg.dev/exam-prep-459213/maven-repo'
+    path: 'src/main/java/hello'
+    artifactId: 'java-dummy-app.jar'
+    groupId: 'com.nafi.app'
+    version: '1.0.0'
+options:
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET

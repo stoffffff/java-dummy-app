@@ -5,13 +5,16 @@ steps:
   - name: maven:3.3-jdk-8
     entrypoint: mvn
     args: ['package','-Dmaven.test.skip=true','-Dpackaging=jar']
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'europe-west1-docker.pkg.dev/exam-prep-459213/docker-repo/java-dummy-app:1.0.0', '--build-arg=JAR_FILE=target/java-dummy-app-1.0.0.jar', '.']
+images: ['europe-west1-docker.pkg.dev/exam-prep-459213/docker-repo/java-dummy-app:1.0.0']
 
-artifacts:
-  mavenArtifacts:
-  - repository: 'https://europe-west1-maven.pkg.dev/exam-prep-459213/maven-repo'
-    path: '/workspace/target/java-dummy-app-1.0.0.jar'
-    artifactId: 'java-dummy-app'
-    groupId: 'com.stekdubs.dev'
-    version: '1.0.0'
+#artifacts:
+#  mavenArtifacts:
+#  - repository: 'https://europe-west1-maven.pkg.dev/exam-prep-459213/maven-repo'
+#    path: '/workspace/target/java-dummy-app-1.0.0.jar'
+#    artifactId: 'java-dummy-app'
+#    groupId: 'com.stekdubs.dev'
+#    version: '1.0.0'
 options:
   default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
